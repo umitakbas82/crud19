@@ -1,1 +1,15 @@
-<p>addemployee works!</p>
+<div class="container">
+    <mat-card>
+        <mat-card-header>       
+           <h2>{{header}}</h2>
+        </mat-card-header>
+        <mat-card-footer>
+            <form action="" [formGroup]="empForm" (ngSubmit)="SaveEmp()">
+                <mat-form-field >
+                    <mat-label>Id</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </form>
+        </mat-card-footer>
+    </mat-card>
+</div>
