@@ -1,10 +1,10 @@
-<div class="container">
-    <mat-card>
+<form action="" [formGroup]="empForm" (ngSubmit)="SaveEmp()">
+  
         <mat-card-header>       
            <h2>{{header}}</h2>
         </mat-card-header>
         <mat-card-content>
-            <form action="" [formGroup]="empForm" (ngSubmit)="SaveEmp()">
+           
                 <mat-form-field >
                     <mat-label>Name</mat-label>
                     <input matInput formControlName="name">
@@ -19,18 +19,35 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-                <mat-form-field >
+
+ <mat-form-field>
+            <mat-label>Employee Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="">Please select role</mat-option>
+              <mat-option value="manager">Manager</mat-option>
+              <mat-option value="lead">Lead</mat-option>
+              <mat-option value="operator">Operator</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+                 <!-- <mat-form-field >
                     <mat-label>Role</mat-label>                   
                     <mat-select formControlName="role">
-                        @for(role of roleValue; track roleValue){
+                         @for(role of roleValue; track roleValue){
                             <mat-option [value]="role.value">{{role.viewValue}}</mat-option>
-                        }
+                        } 
                     </mat-select>
-                </mat-form-field>
-            </form>
+                </mat-form-field> 
+            -->
         </mat-card-content>
-       <mat-card-actions>
-        <button type="submit" mat-raised-button color="indigo">Save</button>
-       </mat-card-actions>
-    </mat-card>
-</div>
+        <div class="d-flex justify-content-center">
+             <mat-card-actions >
+            <button type="submit" mat-raised-button >Save</button>
+            <a mat-button style="color: red;"   >Close</a>
+           </mat-card-actions>
+
+        </div>
+      
+  
+</form>

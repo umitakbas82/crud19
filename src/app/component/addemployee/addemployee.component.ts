@@ -28,19 +28,21 @@ export class AddemployeeComponent {
     role: new FormControl("", Validators.required),
     salary: new FormControl(0, Validators.required)
   })
+  ref: any;
 
 
   SaveEmp(){
     if(this.empForm.valid){
-
+      console.log(this.empForm.value)
     }
   }
   
-  roleValue:any=[
-    {value:"0",viewValue:'manager'},
-    {value:"1",viewValue:'assistant'},
-    {value:"2",viewValue:'taco'},
+  // roleValue:any=[
+  //   {value:"0",viewValue:'manager'},
+  //   {value:"1",viewValue:'assistant'},
+  //   {value:"2",viewValue:'taco'},
 
-  ]
+  // ]
 
+  
 }
