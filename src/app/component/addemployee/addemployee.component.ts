@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AddemployeeComponent {
 
+  
   header = '+ Add New'
 
   empForm = new FormGroup({
@@ -34,4 +35,12 @@ export class AddemployeeComponent {
 
     }
   }
+  
+  roleValue:any=[
+    {value:"0",viewValue:'manager'},
+    {value:"1",viewValue:'assistant'},
+    {value:"2",viewValue:'taco'},
+
+  ]
+
 }
