@@ -8,6 +8,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Employee } from '../../models/employeeModelDTO';
+import { EmployeeService } from '../../services/employee.service';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-addemployee',
   imports: [MatCardModule, ReactiveFormsModule,MatFormFieldModule,MatButtonModule,MatInputModule,MatSelectModule,MatDatepickerModule,MatIconModule],
@@ -18,11 +21,13 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AddemployeeComponent {
 
+  constructor(private service:EmployeeService, private close:MatDialogRef<AddemployeeComponent>){}
+
   
   header = '+ Add New'
 
   empForm = new FormGroup({
-    id: new FormControl(0),
+    id: new FormControl(0,Validators.required),
     name: new FormControl("", Validators.required),
     doj: new FormControl(new Date, Validators.required),
     role: new FormControl("", Validators.required),
@@ -33,7 +38,17 @@ export class AddemployeeComponent {
 
   SaveEmp(){
     if(this.empForm.valid){
-      console.log(this.empForm.value)
+      let _data:Employee={
+        id: this.empForm.value.id as number,
+        name: this.empForm.value.name as string,
+        doj: new Date(this.empForm.value.doj as Date),
+        role: this.empForm.value.role as string,
+        salary: this.empForm.value.salary as number,
+      }
+      this.service.postEmp(_data).subscribe(resp=>{
+        alert('added');
+        this.closepopup();
+      })
     }
   }
   
@@ -43,6 +58,8 @@ export class AddemployeeComponent {
   //   {value:"2",viewValue:'taco'},
 
   // ]
-
+closepopup(){
+  this.close.close();
+}
   
 }

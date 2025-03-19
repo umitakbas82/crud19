@@ -4,7 +4,10 @@
            <h2>{{header}}</h2>
         </mat-card-header>
         <mat-card-content>
-           
+            <mat-form-field >
+                <mat-label>Id</mat-label>
+                <input matInput formControlName="id">
+            </mat-form-field>
                 <mat-form-field >
                     <mat-label>Name</mat-label>
                     <input matInput formControlName="name">
@@ -44,7 +47,7 @@
         <div class="d-flex justify-content-center">
              <mat-card-actions >
             <button type="submit" mat-raised-button >Save</button>
-            <a mat-button style="color: red;"   >Close</a>
+            <a mat-button style="color: red;" (click)="closepopup()"   >Close</a>
            </mat-card-actions>
 
         </div>

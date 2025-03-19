@@ -1,5 +1,11 @@
 {
-    "employee":[
-        
-    ]
+  "employee": [
+    {
+      "id": "123123",
+      "name": "aasd",
+      "doj": "2025-03-19T07:25:05.784Z",
+      "role": "lead",
+      "salary": "0123123"
+    }
+  ]
 }
